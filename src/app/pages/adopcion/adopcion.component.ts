@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Animal } from '../../models/animal.model';
-
+interface Animal {
+  id: number; // Agregado para identificar cada animal
+  nombre: string;
+  especie: string;
+  raza: string;
+  edad: number;
+  imagen: string;
+  descripcion: string;
+}
 @Component({
   selector: 'app-adopcion',
   templateUrl: './adopcion.component.html',
@@ -33,6 +40,6 @@ export class AdopcionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Aquí es donde en la Semana 3 conectarás el servicio JSON 
+    
   }
 }
