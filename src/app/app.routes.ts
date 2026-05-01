@@ -8,6 +8,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { DetalleAnimalComponent } from './pages/detalle-animal/detalle-animal.component';
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
+import { ComoAdoptarComponent } from './pages/como-adoptar/como-adoptar.component';
 
 export const routes: Routes = [
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },// Ruta para la página de contacto
   { path: 'quienes-somos', component: QuienesSomosComponent }, // Ruta para la página de quiénes somos
   { path: 'iniciar-sesion', component: IniciarSesionComponent }, // Ruta para la página de iniciar sesión
+  { path: 'como-adoptar', component: ComoAdoptarComponent }, // Ruta para la página de cómo adoptar
 
   // Esta ruta dinámica ":" permitirá usar UNA sola ficha para todos los animales
   { path: 'animal/:id', component: DetalleAnimalComponent },
