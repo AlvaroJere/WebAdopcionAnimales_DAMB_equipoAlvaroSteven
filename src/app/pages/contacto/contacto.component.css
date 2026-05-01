@@ -1,0 +1,13 @@
+/* 
+   Selector de atributo con prefijo (^=): 
+   Busca todos los elementos 'span' cuya clase comience exactamente por "me-".
+   Se utiliza para aplicar estilos uniformes a los iconos/emojis que usan 
+   las clases de margen de Bootstrap (como me-3), mejorando su tamaño, 
+   alineación y profundidad visual sin necesidad de crear clases nuevas.
+*/
+span[class^="me-"] {
+    font-size: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+    vertical-align: middle;
+}

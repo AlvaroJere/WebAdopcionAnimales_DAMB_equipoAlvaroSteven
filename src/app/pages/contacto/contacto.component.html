@@ -1,31 +1,89 @@
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 shadow p-4 rounded bg-light">
-      <h2 class="text-center mb-4">Contacta con Nosotros</h2>
-      <form>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre Completo</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Tu nombre...">
+<main class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold">Contacta con ANAA</h1>
+            <p class="lead text-muted">Estamos a tu disposición para cualquier consulta.</p>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+
+        <div class="row g-4 align-items-stretch">
+
+            <!-- FORMULARIO -->
+            <div class="col-lg-7 d-flex">
+                <div class="card shadow-lg border w-100">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h4 class="mb-4 fw-bold">Formulario de contacto</h4>
+
+                        <form>
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Nombre</label>
+                                <input type="text" class="form-control" placeholder="Tu nombre" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Asunto</label>
+                                <select class="form-select">
+                                    <option>Información Adopciones</option>
+                                    <option>Voluntariado</option>
+                                    <option>Donaciones</option>
+                                    <option>Otros</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Mensaje</label>
+                                <textarea class="form-control" rows="6"
+                                    placeholder="¿En qué podemos ayudarte?" required></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="btn btn-success w-100 fw-bold py-3">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATENCIÓN AL PÚBLICO -->
+            <div class="col-lg-5 d-flex">
+                <div class="card shadow-lg border w-100">
+                    <div class="card-body p-4 p-md-5 px-4 px-md-5">
+
+                        <h4 class="mb-4 fw-bold text-success">Atención al Público</h4>
+
+                        <div class="d-flex mb-4">
+                            <span class="me-3">📍</span>
+                            <div>
+                                <p class="mb-0 fw-bold">Oficina Central Valencia</p>
+                                <p class="text-muted mb-0">Plaza de España, 5</p>
+                                <p class="text-muted">46007 Valencia</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <span class="me-3">📞</span>
+                            <div>
+                                <p class="mb-0 fw-bold">Teléfono</p>
+                                <p class="text-muted">96 351 20 20</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex">
+                            <span class="me-3">⏰</span>
+                            <div>
+                                <p class="mb-0 fw-bold">Horarios</p>
+                                <p class="text-muted mb-0">Lunes a Viernes: 09:00 - 20:00</p>
+                                <p class="text-muted">Sábados: 10:00 - 14:00</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="mb-3">
-          <label for="asunto" class="form-label">Asunto</label>
-          <select class="form-select" id="asunto">
-            <option selected>Consulta general</option>
-            <option value="1">Adopción</option>
-            <option value="2">Voluntariado</option>
-            <option value="3">Donaciones</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
-      </form>
     </div>
-  </div>
-</div>
+</main>

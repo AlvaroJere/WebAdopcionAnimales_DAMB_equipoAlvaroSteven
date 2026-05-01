@@ -1,20 +1,31 @@
-<div class="container">
-  <div class="text-center my-5">
-    <h1>Nuestros Gatos</h1>
-    <p class="text-muted">Buscan un hogar donde recibir mucho cariño.</p>
-  </div>
-  <div class="row">
-    <!-- Ejemplo para un gato -->
-    <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm border-0">
-        <img src="assets/img/gatos/mina.jpg" class="card-img-top" alt="Mina">
-        <div class="card-body">
-          <h5 class="card-title">Mina</h5>
-          <p class="card-text text-truncate">Una gatita muy dulce y tranquila.</p>
-          <a routerLink="/animal/mina" class="btn btn-outline-primary">Conocer a Mina</a>
+<main>
+    <!--- Sección Hero -->
+    <section class="py-5 text-center container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1 class="fw-bold text-success display-6 mb-3">Encuentra al compañero perfecto para tu hogar</h1> 
+                <p class="lead text-muted mb-4">Todos nuestros animales se entregan vacunados, desparasitados y con microchip.</p>
+            
+                <div class="d-flex justify-content-center gap-3">
+                    <a routerLink="/perros" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐶 Perros</a>
+                    <a routerLink="/adopcion" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">⭕ Todos</a>
+                    <a routerLink="/otros-animales" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐾 Otros</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- Añade aquí los demás gatos de tu proyecto anterior -->
-  </div>
-</div>
+    </section>
+
+    <!--- Sección de tarjetas de animales -->
+    <section class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Un solo div que se repite por cada gato en la lista -->
+                <div class="col-12 col-md-6 col-lg-4" *ngFor="let gato de listaGatos">
+                    <app-animal-card [animal]="gato"></app-animal-card>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</main>
