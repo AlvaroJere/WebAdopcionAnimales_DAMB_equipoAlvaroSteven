@@ -1,48 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necesario para *ngFor
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
-
-interface Animal {
-  id: number;
-  nombre: string;
-  especie: string;
-  raza: string;
-  edad: number;
-  imagen: string;
-  descripcion: string;
-}
 
 @Component({
   selector: 'app-adopcion',
-  standalone: true, // Indica que el componente se gestiona solo
-  imports: [CommonModule, AnimalCardComponent], // Aquí "activas" las herramientas que necesitas
+  standalone: true,
+  imports: [CommonModule, RouterModule, AnimalCardComponent],
   templateUrl: './adopcion.component.html',
-  styleUrls: ['./adopcion.component.css']
+  styleUrl: './adopcion.component.css'
 })
-export class AdopcionComponent implements OnInit {
-
-  listaAnimales: Animal[] = [
-    {
-      id: 1,
-      nombre: 'Rocky',
-      especie: 'Perro',
-      raza: 'Pastor Alemán',
-      edad: 3,
-      imagen: '/assets/perro.jpg',
-      descripcion: 'Un perro muy juguetón y fiel.'
-    },
-    {
-      id: 2,
-      nombre: 'Luna',
-      especie: 'Gato',
-      raza: 'Persa',
-      edad: 2,
-      imagen: 'assets/gato.jpg',
-      descripcion: 'Tranquila y le encanta dormir al sol.'
-    }
+export class AdopcionComponent {
+  listadoAnimales = [
+  { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', sexo: 'Macho', imagen: 'img/perroMestizo.jpg' },
+  { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', sexo: 'Hembra', imagen: 'img/gato1.png' },
+  { nombre: 'Lola', raza: 'Siamés', edad: '2 Años', sexo: 'Hembra', imagen: 'img/gatoSiamés.jpg' },
+  { nombre: 'Copito', raza: 'Belier', edad: '2 Años', sexo: 'Macho', imagen: 'img/conejo1.jpg' },
+  { nombre: 'Toby', raza: 'Beagle', edad: '1 Año', sexo: 'Macho', imagen: 'img/perroBeagle.jpg' },
+  { nombre: 'Rex', raza: 'Pastor Alemán', edad: '5 Años', sexo: 'Macho', imagen: 'img/perroPastorAleman.jpg' },
+  { nombre: 'Nala', raza: 'Angora', edad: '6 Meses', sexo: 'Hembra', imagen: 'img/gatoAngora.jpg' },
+  { nombre: 'Galleta', raza: 'Abisinia', edad: '6 Meses', sexo: 'Hembra', imagen: 'img/cobaya1.jpg' },
+  { nombre: 'Olivia', raza: 'Tortuga de agua', edad: '10 Años', sexo: 'Hembra', imagen: 'img/tortuga1.jpg' },
+  { nombre: 'Blue', raza: 'Periquito común', edad: '1 Año', sexo: 'Macho', imagen: 'img/ave1.jpg' },
+  { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', sexo: 'Macho', imagen: 'img/hamster1.webp' },
+  { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', sexo: 'Macho', imagen: 'img/erizo1.jpg' }
   ];
-
-  constructor() { }
-
-  ngOnInit(): void { }
 }

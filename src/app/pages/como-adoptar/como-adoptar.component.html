@@ -1,13 +1,90 @@
-<section class="album py-5 bg-light">
-  <div class="container">
-    <div class="row g-4">
-      
-      @for (animal of listadoAnimales; track animal.nombre) {
-        <div class="col-12 col-md-6 col-lg-4">
-          <app-animal-card [animal]="animal"></app-animal-card>
+<main>
+  <!-- SECCIÓN HERO -->
+  <section class="hero-section position-relative overflow-hidden w-100 text-center d-flex align-items-center justify-content-center py-5">
+    
+    <!-- Capa de fondo oscuro para que resalte el texto -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75" style="z-index: 1;"></div>
+        
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row justify-content-center py-5">
+        <div class="col-md-10 col-lg-8">
+          <h1 class="display-2 fw-bolder text-white text-uppercase mb-4">
+            El camino hacia una <span class="text-success">nueva vida</span>
+          </h1>
+          <p class="lead fs-3 fw-normal text-white mb-5 bg-dark bg-opacity-25 d-inline-block rounded p-2">
+            Te guiamos paso a paso en el proceso de adopción responsable para encontrar a tu compañero ideal.
+          </p>
+          <div class="d-block">
+            <a class="btn btn-success btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg border border-2 border-white" href="#proceso">
+              ✨ Empezar ahora
+            </a>
+          </div>
         </div>
-      }
-
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- SECCIÓN PASOS -->
+  <section id="proceso" class="py-5 bg-white">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-success">¿Cómo funciona?</h2>
+        <p class="lead text-muted">Tres pasos simples para cambiar una vida</p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- PASO 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 bg-light p-4 text-center shadow-sm">
+            <div class="mx-auto bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px;">
+              <span class="fs-3 fw-bold">1</span>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 fw-bold">Elige a tu amigo</h3>
+              <p class="card-text text-secondary">Explora nuestras fichas online. Cada animal tiene una historia y necesidades diferentes que detallamos para ti.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 bg-light p-4 text-center shadow-sm">
+            <div class="mx-auto bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px;">
+              <span class="fs-3 fw-bold">2</span>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 fw-bold">Entrevista personal</h3>
+              <p class="card-text text-secondary">Hablaremos sobre tu rutina y experiencia para asegurar que el animal elegido se adapte perfectamente a tu hogar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 bg-light p-4 text-center shadow-sm">
+            <div class="mx-auto bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px;">
+              <span class="fs-3 fw-bold">3</span>
+            </div>
+            <div class="card-body">
+              <h3 class="h4 fw-bold">Finaliza el contrato</h3>
+              <p class="card-text text-secondary">Firmamos el compromiso de adopción, entregamos la cartilla sanitaria y ¡te llevas a tu nuevo mejor amigo!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer de contacto -->
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <p class="text-muted fw-light">
+            ¿Tienes dudas sobre el proceso o algún caso especial? 
+            <a routerLink="/contacto" class="text-success fw-bold text-decoration-none border-bottom border-success">
+              Contáctanos ahora y te ayudaremos
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
