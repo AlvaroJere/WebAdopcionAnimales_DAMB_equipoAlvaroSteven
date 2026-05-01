@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { AnimalService } from '../../servicios/animal.service';
+import { Animal } from '../../animal.interface';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
 
 @Component({
   selector: 'app-otros-animales',
   standalone: true,
-  imports: [CommonModule, RouterModule, AnimalCardComponent],
+  imports: [CommonModule, AnimalCardComponent], // Importamos la card para usarla
   templateUrl: './otros-animales.component.html',
   styleUrl: './otros-animales.component.css'
 })
-export class OtrosAnimalesComponent {
-  otrosAnimales = [
-    { nombre: 'Copito', raza: 'Belier', edad: '2 Años', imagen: 'img/conejo1.jpg' },
-    { nombre: 'Galleta', raza: 'Abisinia', edad: '6 Meses', imagen: 'img/cobaya1.jpg' },
-    { nombre: 'Olivia', raza: 'Tortuga de agua', edad: '10 Años', imagen: 'img/tortuga1.jpg' },
-    { nombre: 'Blue', raza: 'Periquito común', edad: '1 Año', imagen: 'img/ave1.jpg' },
-    { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', imagen: 'img/hamster1.webp' },
-    { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', imagen: 'img/erizo1.jpg' }
-  ];
+export class OtrosAnimalesComponent implements OnInit {
+  private _animalService = inject(AnimalService); // Inyección moderna
+  listadoOtros: Animal[] = [];
+
+  ngOnInit(): void {
+    // Usamos el método que ya creaste para filtrar por 'otro'
+    this.listadoOtros = this._animalService.getAnimalesPorTipo('otro');
+  }
 }

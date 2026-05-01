@@ -20,11 +20,13 @@
         <div class="container">
             <div class="row g-4 justify-content-center">
                 
-                <!-- Un solo div que se repite por cada gato en la lista -->
-                <div class="col-12 col-md-6 col-lg-4" *ngFor="let gato de listaGatos">
-                    <app-animal-card [animal]="gato"></app-animal-card>
-                </div>
-                
+                <!--- Aquí se iterará sobre la lista de gatos para mostrar cada uno en una tarjeta --->
+                @for (gato of listadoGatos; track gato.nombre) {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <app-animal-card [animal]="gato"></app-animal-card>
+                    </div>
+                }
+    
             </div>
         </div>
     </section>

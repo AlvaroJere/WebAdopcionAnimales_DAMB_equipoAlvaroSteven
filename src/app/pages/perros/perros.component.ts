@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core'; // Añadimos OnInit e inject
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
+import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio
+import { Animal } from '../../animal.interface'; // Importamos la interface
 
 @Component({
   selector: 'app-perros',
@@ -10,10 +12,13 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
   templateUrl: './perros.component.html',
   styleUrl: './perros.component.css'
 })
-export class PerrosComponent {
-  listadoPerros = [
-    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', sexo: 'Macho', imagen: 'img/perroMestizo.jpg' },
-    { nombre: 'Toby', raza: 'Beagle', edad: '1 Año', sexo: 'Macho', imagen: 'img/perroBeagle.jpg' },
-    { nombre: 'Rex', raza: 'Pastor Alemán', edad: '5 Años', sexo: 'Macho', imagen: 'img/perroPastorAleman.jpg' }
-  ];
+
+export class PerrosComponent implements OnInit {
+  private _animalService = inject(AnimalService);
+  listadoPerros: Animal[] = [];
+
+  ngOnInit(): void {
+    // Uso el método que ya he creado para filtrar por 'perro'
+    this.listadoPerros = this._animalService.getAnimalesPorTipo('perro');
+  }
 }

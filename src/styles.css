@@ -74,7 +74,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-section {
-    background: url('../src/assets/img/animalesUnidos.webp') center/cover no-repeat;
+    background: url('/img/animalesUnidos.webp') center/cover no-repeat;
     min-height: 80vh;
     display: flex;
     align-items: center;

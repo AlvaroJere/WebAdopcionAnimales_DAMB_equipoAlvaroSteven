@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core'; // Añadimos OnInit e inject
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
+import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio
+import { Animal } from '../../animal.interface'; // Importamos la interface
 
 @Component({
   selector: 'app-adopcion',
@@ -10,19 +12,17 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
   templateUrl: './adopcion.component.html',
   styleUrl: './adopcion.component.css'
 })
-export class AdopcionComponent {
-  listadoAnimales = [
-  { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', sexo: 'Macho', imagen: 'img/perroMestizo.jpg' },
-  { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', sexo: 'Hembra', imagen: 'img/gato1.png' },
-  { nombre: 'Lola', raza: 'Siamés', edad: '2 Años', sexo: 'Hembra', imagen: 'img/gatoSiamés.jpg' },
-  { nombre: 'Copito', raza: 'Belier', edad: '2 Años', sexo: 'Macho', imagen: 'img/conejo1.jpg' },
-  { nombre: 'Toby', raza: 'Beagle', edad: '1 Año', sexo: 'Macho', imagen: 'img/perroBeagle.jpg' },
-  { nombre: 'Rex', raza: 'Pastor Alemán', edad: '5 Años', sexo: 'Macho', imagen: 'img/perroPastorAleman.jpg' },
-  { nombre: 'Nala', raza: 'Angora', edad: '6 Meses', sexo: 'Hembra', imagen: 'img/gatoAngora.jpg' },
-  { nombre: 'Galleta', raza: 'Abisinia', edad: '6 Meses', sexo: 'Hembra', imagen: 'img/cobaya1.jpg' },
-  { nombre: 'Olivia', raza: 'Tortuga de agua', edad: '10 Años', sexo: 'Hembra', imagen: 'img/tortuga1.jpg' },
-  { nombre: 'Blue', raza: 'Periquito común', edad: '1 Año', sexo: 'Macho', imagen: 'img/ave1.jpg' },
-  { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', sexo: 'Macho', imagen: 'img/hamster1.webp' },
-  { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', sexo: 'Macho', imagen: 'img/erizo1.jpg' }
-  ];
+export class AdopcionComponent implements OnInit {
+  
+  // Inyectamos el servicio al estilo Angular 19
+  private _animalService = inject(AnimalService);
+
+  // Definimos la variable vacía que recibirá los datos
+  listadoAnimales: Animal[] = [];
+
+  ngOnInit(): void {
+
+    // Cuando el componente se inicia, pedimos los datos al servicio
+    this.listadoAnimales = this._animalService.getTodos();
+  }
 }

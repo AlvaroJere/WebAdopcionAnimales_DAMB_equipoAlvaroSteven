@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core'; // Añadimos OnInit e inject
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
+import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio
+import { Animal } from '../../animal.interface'; // Importamos la interface
 
 @Component({
   selector: 'app-gatos',
@@ -10,11 +12,11 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
   templateUrl: './gatos.component.html',
   styleUrl: './gatos.component.css'
 })
-export class GatosComponent {
-  // Aquí implementaremos la lógica para mostrar los gatos disponibles para adopción
-  listaGatos = [
-    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'img/gato1.png' },
-    { nombre: 'Lola', raza: 'Siamés', edad: '2 Años', imagen: 'img/gatoSiamés.jpg' },
-    { nombre: 'Nala', raza: 'Angora', edad: '6 Meses', imagen: 'img/gatoAngora.jpg' }
-  ];
+export class GatosComponent implements OnInit {
+  private _animalService = inject(AnimalService);
+  listadoGatos: Animal[] = [];
+
+  ngOnInit(): void {
+    this.listadoGatos = this._animalService.getAnimalesPorTipo('gato');
+  }
 }
