@@ -7,7 +7,6 @@ import { OtrosAnimalesComponent } from './pages/otros-animales/otros-animales.co
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { DetalleAnimalComponent } from './pages/detalle-animal/detalle-animal.component';
-
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'adopcion', component: AdopcionComponent },

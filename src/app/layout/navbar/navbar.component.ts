@@ -1,9 +1,12 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core'; 
+import { RouterModule } from '@angular/router'; // Necesario para usar routerLink
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  imports: [RouterModule],
+  standalone: true
 })
 export class NavbarComponent {
   lastScrollTop = 0;

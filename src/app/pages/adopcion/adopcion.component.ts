@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Necesario para *ngFor
+import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
+
 interface Animal {
-  id: number; // Agregado para identificar cada animal
+  id: number;
   nombre: string;
   especie: string;
   raza: string;
@@ -8,14 +11,16 @@ interface Animal {
   imagen: string;
   descripcion: string;
 }
+
 @Component({
   selector: 'app-adopcion',
+  standalone: true, // Indica que el componente se gestiona solo
+  imports: [CommonModule, AnimalCardComponent], // Aquí "activas" las herramientas que necesitas
   templateUrl: './adopcion.component.html',
   styleUrls: ['./adopcion.component.css']
 })
 export class AdopcionComponent implements OnInit {
 
-  // Ahora la lista incluye 'id' y 'raza' para coincidir con tu modelo
   listaAnimales: Animal[] = [
     {
       id: 1,
@@ -23,7 +28,7 @@ export class AdopcionComponent implements OnInit {
       especie: 'Perro',
       raza: 'Pastor Alemán',
       edad: 3,
-      imagen: 'assets/perro.jpg',
+      imagen: '/assets/perro.jpg',
       descripcion: 'Un perro muy juguetón y fiel.'
     },
     {
@@ -39,7 +44,5 @@ export class AdopcionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 }

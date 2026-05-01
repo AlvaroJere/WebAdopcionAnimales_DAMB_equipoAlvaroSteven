@@ -1,0 +1,10 @@
+<div class="card shadow-sm h-100">
+  <!-- Fíjate en los corchetes [src], indican que la ruta viene del .ts -->
+  <img [src]="animal.imagen" class="card-img-top" [alt]="animal.nombre">
+  <div class="card-body">
+    <h5 class="card-title">{{ animal.nombre }}</h5>
+    <p class="card-text">{{ animal.raza }}</p>
+    <!-- Este enlace usa el id que configuramos en las rutas -->
+    <a [routerLink]="['/animal', animal.id]" class="btn btn-primary">Ver Ficha</a>
+  </div>
+</div>
