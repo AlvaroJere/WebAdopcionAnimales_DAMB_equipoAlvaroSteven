@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AnimalService } from '../../servicios/animal.service';
 import { Animal } from '../../animal.interface';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
@@ -7,7 +8,7 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 @Component({
   selector: 'app-otros-animales',
   standalone: true,
-  imports: [CommonModule, AnimalCardComponent], // Importamos la card para usarla
+  imports: [CommonModule, RouterModule, AnimalCardComponent], // Importamos la card para usarla
   templateUrl: './otros-animales.component.html',
   styleUrl: './otros-animales.component.css'
 })
