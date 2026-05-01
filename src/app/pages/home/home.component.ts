@@ -12,9 +12,9 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 })
 export class HomeComponent {
   animalesDestacados = [
-    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', imagen: 'assets/img/perroMestizo.jpg' },
-    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'assets/img/gato1.png' },
-    { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', imagen: 'assets/img/hamster1.webp' },
-    { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', imagen: 'assets/img/erizo1.jpg' }
+    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', imagen: 'img/perroMestizo.jpg' },
+    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'img/gato1.png' },
+    { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', imagen: 'img/hamster1.webp' },
+    { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', imagen: 'img/erizo1.jpg' }
   ];
 }

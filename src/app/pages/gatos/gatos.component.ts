@@ -13,8 +13,8 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 export class GatosComponent {
   // Aquí implementaremos la lógica para mostrar los gatos disponibles para adopción
   listaGatos = [
-    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'assets/img/gato1.png' },
-    { nombre: 'Lola', raza: 'Siamés', edad: '2 Años', imagen: 'assets/img/gatoSiamés.jpg' },
-    { nombre: 'Nala', raza: 'Angora', edad: '6 Meses', imagen: 'assets/img/gatoAngora.jpg' }
+    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'img/gato1.png' },
+    { nombre: 'Lola', raza: 'Siamés', edad: '2 Años', imagen: 'img/gatoSiamés.jpg' },
+    { nombre: 'Nala', raza: 'Angora', edad: '6 Meses', imagen: 'img/gatoAngora.jpg' }
   ];
 }

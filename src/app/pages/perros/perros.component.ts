@@ -12,8 +12,8 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 })
 export class PerrosComponent {
   listadoPerros = [
-    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', sexo: 'Macho', imagen: 'assets/img/perroMestizo.jpg' },
-    { nombre: 'Toby', raza: 'Beagle', edad: '1 Año', sexo: 'Macho', imagen: 'assets/img/perroBeagle.jpg' },
-    { nombre: 'Rex', raza: 'Pastor Alemán', edad: '5 Años', sexo: 'Macho', imagen: 'assets/img/perroPastorAleman.jpg' }
+    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', sexo: 'Macho', imagen: 'img/perroMestizo.jpg' },
+    { nombre: 'Toby', raza: 'Beagle', edad: '1 Año', sexo: 'Macho', imagen: 'img/perroBeagle.jpg' },
+    { nombre: 'Rex', raza: 'Pastor Alemán', edad: '5 Años', sexo: 'Macho', imagen: 'img/perroPastorAleman.jpg' }
   ];
 }
