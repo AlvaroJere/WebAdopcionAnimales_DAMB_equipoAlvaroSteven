@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AnimalCardComponent } from '../../components/animal-card/animal-card.component';
+import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
 
 @Component({
   selector: 'app-otros-animales',
