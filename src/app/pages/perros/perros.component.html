@@ -1,17 +1,27 @@
-<div class="container">
-  <h2 class="text-center my-4">Nuestros Perros en Adopción</h2>
-  <div class="row">
-    <!-- Repite este bloque para cada perro que tenías -->
-    <div class="col-md-4 mb-4">
-      <div class="card shadow-sm">
-        <img src="assets/img/perros/rex.jpg" class="card-img-top" alt="Rex">
-        <div class="card-body text-center">
-          <h5 class="card-title">Rex</h5>
-          <p class="card-text">Un pastor alemán muy valiente.</p>
-          <!-- Fíjate en el routerLink: apunta al componente de detalle -->
-          <a routerLink="/animal/rex" class="btn btn-primary">Ver Ficha</a>
+<main>
+    <section class="py-5 text-center container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1 class="fw-bold text-success display-6 mb-3">Encuentra al compañero perfecto para tu hogar</h1> 
+                <p class="lead text-muted mb-4">Todos nuestros animales se entregan vacunados, desparasitados y con microchip.</p>
+            
+                <div class="d-flex justify-content-center gap-3">
+                    <a routerLink="/adopcion" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">⭕ Todos</a>
+                    <a routerLink="/gatos" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐱 Gatos</a>
+                    <a routerLink="/otros-animales" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐾 Otros</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+
+    <!--- Sección de tarjetas dinámica -->
+    <section class="album py-5 bg-light">
+        <div class="container">
+            <div class="row g-4 justify-content-center align-items-center">
+                <div class="col-8 col-md-6 col-lg-4" *ngFor="let perro of listadoPerros">
+                    <app-animal-card [animal]="perro"></app-animal-card>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -7,15 +7,22 @@ import { OtrosAnimalesComponent } from './pages/otros-animales/otros-animales.co
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { DetalleAnimalComponent } from './pages/detalle-animal/detalle-animal.component';
+import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
+
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'adopcion', component: AdopcionComponent },
-  { path: 'perros', component: PerrosComponent },
-  { path: 'gatos', component: GatosComponent },
-  { path: 'otros', component: OtrosAnimalesComponent },
-  { path: 'contacto', component: ContactoComponent },
-  { path: 'quienes-somos', component: QuienesSomosComponent },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirige la ruta raíz a Home
+  { path: 'home', component: HomeComponent }, // Ruta para la página de inicio
+  { path: 'adopcion', component: AdopcionComponent }, // Ruta para la página de adopción
+  { path: 'perros', component: PerrosComponent }, // Ruta para la página de perros
+  { path: 'gatos', component: GatosComponent },// Ruta para la página de gatos
+  { path: 'otros-animales', component: OtrosAnimalesComponent }, // Ruta para la página de otros animales
+  { path: 'contacto', component: ContactoComponent },// Ruta para la página de contacto
+  { path: 'quienes-somos', component: QuienesSomosComponent }, // Ruta para la página de quiénes somos
+  { path: 'iniciar-sesion', component: IniciarSesionComponent }, // Ruta para la página de iniciar sesión
+
   // Esta ruta dinámica ":" permitirá usar UNA sola ficha para todos los animales
   { path: 'animal/:id', component: DetalleAnimalComponent },
-  { path: '**', redirectTo: '' }
+
+  { path: '**', redirectTo: 'home' } // Ruta comodín para redirigir a Home si no se encuentra la ruta
 ];

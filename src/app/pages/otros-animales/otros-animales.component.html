@@ -1,0 +1,31 @@
+<main>
+    <!--- Sección Hero -->
+    <section class="py-5 text-center container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1 class="fw-bold text-success display-6 mb-3">Encuentra al compañero perfecto para tu hogar</h1> 
+                <p class="lead text-muted mb-4">Todos nuestros animales se entregan vacunados, desparasitados y con microchip.</p>
+            
+                <div class="d-flex justify-content-center gap-3">
+                    <a routerLink="/perros" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐶 Perros</a>
+                    <a routerLink="/gatos" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">🐱 Gatos</a>
+                    <a routerLink="/adopcion" class="btn btn-lg btn-outline-success rounded-pill px-4 shadow-sm">⭕ Todos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- Sección de tarjetas dinámica -->
+    <section class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+
+                <!-- Usamos el componente AnimalCard para cada animal de la lista -->
+                <div class="col-6 col-md-6 col-lg-4" *ngFor="let animal of otrosAnimales">
+                    <app-animal-card [animal]="animal"></app-animal-card>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</main>

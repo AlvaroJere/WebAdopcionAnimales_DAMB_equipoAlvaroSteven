@@ -5,6 +5,7 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 
 @Component({
   selector: 'app-gatos',
+  standalone: true,
   imports: [CommonModule, RouterModule, AnimalCardComponent],
   templateUrl: './gatos.component.html',
   styleUrl: './gatos.component.css'

@@ -1,10 +1,23 @@
-<div class="card shadow-sm h-100">
-  <!-- Fíjate en los corchetes [src], indican que la ruta viene del .ts -->
-  <img [src]="animal.imagen" class="card-img-top" [alt]="animal.nombre">
-  <div class="card-body">
-    <h5 class="card-title">{{ animal.nombre }}</h5>
-    <p class="card-text">{{ animal.raza }}</p>
-    <!-- Este enlace usa el id que configuramos en las rutas -->
-    <a [routerLink]="['/animal', animal.id]" class="btn btn-primary">Ver Ficha</a>
+<article class="card h-100 shadow-sm border-0">
+  <div class="ratio ratio-1x1">
+    <img [src]="animal.imagen" 
+         class="card-img-top object-fit-cover" 
+         [alt]="animal.nombre">
   </div>
-</div>
+  
+  <div class="card-body d-flex flex-column text-center">
+    <h5 class="card-title fw-bold">{{ animal.nombre }}</h5>
+    
+    <p class="card-text text-muted small">
+      {{ animal.raza }} • {{ animal.edad }}
+      <!-- Mostramos el sexo solo si existe en el objeto -->
+      <span *ngIf="animal.sexo"> • {{ animal.sexo }}</span>
+    </p>
+
+    <!-- Botón dinámico con routerLink -->
+    <a [routerLink]="['/ficha', animal.nombre.toLowerCase()]" 
+       class="btn btn-outline-success rounded-pill px-4 mt-auto">
+      Ver ficha
+    </a>
+  </div>
+</article>

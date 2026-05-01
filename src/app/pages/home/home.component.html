@@ -41,59 +41,12 @@
         </div>
 
         <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3 p-3">
-                <article class="card h-100 shadow-sm border-0">
-                    <div class="ratio ratio-1x1">
-                        <img src="assets/img/perroMestizo.jpg" class="card-img-top object-fit-cover" alt="Thor">
-                    </div>
-                    <div class="card-body d-flex flex-column text-center">
-                        <h5 class="card-title fw-bold">Thor</h5>
-                        <p class="card-text text-muted small">Mestizo • 3 Años • Macho</p>
-                        <a routerLink="/adopcion" class="btn btn-outline-success rounded-pill px-4 mt-auto">Ver ficha</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 p-3">
-                <article class="card h-100 shadow-sm border-0">
-                    <div class="ratio ratio-1x1">
-                        <img src="assets/img/gato1.png" class="card-img-top object-fit-cover" alt="Mina">
-                    </div>
-                    <div class="card-body d-flex flex-column text-center">
-                        <h5 class="card-title fw-bold">Mina</h5>
-                        <p class="card-text text-muted small">Común Europeo • 1 Año • Hembra</p>
-                        <a routerLink="/adopcion" class="btn btn-outline-success rounded-pill px-4 mt-auto">Ver ficha</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 p-3">
-                <article class="card h-100 shadow-sm border-0">
-                    <div class="ratio ratio-1x1">
-                        <img src="assets/img/hamster1.webp" class="card-img-top object-fit-cover" alt="Bigotes">
-                    </div>
-                    <div class="card-body d-flex flex-column text-center">
-                        <h5 class="card-title fw-bold">Bigotes</h5>
-                        <p class="card-text text-muted small">Ruso • 4 Meses • Macho</p>
-                        <a routerLink="/adopcion" class="btn btn-outline-success rounded-pill px-4 mt-auto">Ver ficha</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 p-3">
-                <article class="card h-100 shadow-sm border-0">
-                    <div class="ratio ratio-1x1">
-                        <img src="assets/img/erizo1.jpg" class="card-img-top object-fit-cover" alt="Púas">
-                    </div>
-                    <div class="card-body d-flex flex-column text-center">
-                        <h5 class="card-title fw-bold">Púas</h5>
-                        <p class="card-text text-muted small">Erizo Africano • 1 Año • Macho</p>
-                        <a routerLink="/adopcion" class="btn btn-outline-success rounded-pill px-4 mt-auto">Ver ficha</a>
-                    </div>
-                </article>
+            <!-- AQUÍ LA MAGIA: Sustituimos tus 4 artículos manuales por este bucle -->
+            <div class="col-6 col-md-4 col-lg-3" *ngFor="let animal of animalesDestacados">
+                <app-animal-card [animal]="animal"></app-animal-card>
             </div>
         </div>           
-    </div> 
+    </div>           
 </section>
 
 <section class="py-5 bg-light">
