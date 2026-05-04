@@ -1,7 +1,0 @@
-.hero-section {
-    min-height: 60vh;
-    /* Busca una imagen de perros/gatos en alta resolución y ponla en public/img/bg-hero.jpg */
-    background-image: url('/img/perroMestizo.jpg'); 
-    background-size: cover;
-    background-position: center;
-}
