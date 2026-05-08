@@ -1,0 +1,100 @@
+/* Efectos de Rotación */
+.rotate-3 { 
+    transform: rotate(3deg); 
+}
+.rotate-n3 { 
+    transform: rotate(-3deg); 
+}
+
+/* Decoración de marco para el texto */
+.text-frame-decoration::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 80px;
+    height: 80px;
+    border-top: 4px solid #198754;
+    border-left: 4px solid #198754;
+    border-radius: 40px 0 0 0;
+    z-index: 1; /* Asegura que el marco esté detrás del texto */
+}
+
+/* Efectos de Brillo (Glow) */
+.glow-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    z-index: 0;
+}
+ /* Colores y tamaños para los elementos de brillo */
+.glow-1 {
+    width: 200px;
+    height: 200px;
+    background: #198754;
+    top: 10%;
+    left: 40%;
+}
+
+/* Nuevo elemento de brillo con un color diferente y posición distinta */
+.glow-2 {
+    width: 250px;
+    height: 250px;
+    background: #f39c12;
+    bottom: 10%;
+    right: 20%;
+}
+
+/* BASE DEL HERO Y ANIMACIÓN DE ENTRADA */
+.hero-full-screen {
+    min-height: calc(100vh - 45px);
+    display: flex;
+    align-items: center;
+    /* Esta transición es clave para que cuando bajes la rueda el cambio sea suave */
+    transition: min-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease;
+}
+
+@keyframes fadeUpHero {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up-hero {
+    animation: fadeUpHero 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* TAMAÑOS GRANDES PARA PC (Escritorios amplios) */
+@media (min-width: 1200px) {
+    .hero-creative h1 {
+        font-size: 4.5rem !important; 
+        line-height: 1.1;
+    }
+    .hero-creative .h5 {
+        font-size: 1.8rem !important;
+        margin-bottom: 2rem !important;
+    }
+    /* Ajustamos el arco del texto para que no se vea pequeño con la letra grande */
+    .text-frame-decoration::before {
+        width: 120px;
+        height: 120px;
+        top: -20px;
+        left: -20px;
+    }
+}
+
+/* LA CLASE "ENCOGIDA" (Para el efecto de la ruedita) */
+.hero-shrunk {
+    min-height: 60vh !important; /* El tamaño al que vuelve cuando haces scroll */
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* RESPONSIVE PARA MÓVILES (Evita que el 100vh rompa el diseño en pantallas pequeñas) */
+@media (max-width: 768px) {
+    .hero-full-screen {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 50px;
+    }
+}
