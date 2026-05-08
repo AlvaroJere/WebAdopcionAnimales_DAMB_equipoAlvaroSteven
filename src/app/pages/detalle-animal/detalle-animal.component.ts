@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router'; // Importamos ActivatedRoute para obtener el ID del animal desde la URL
 
@@ -17,7 +17,7 @@ import { TemplateLiteral } from '@angular/compiler';
   templateUrl: './detalle-animal.component.html',
   styleUrl: './detalle-animal.component.css'
 })
-export class DetalleAnimalComponent implements OnInit 
+export class DetalleAnimalComponent implements OnInit
 {
   private _route = inject(ActivatedRoute); // Inyección de ActivatedRoute para obtener el ID del animal
   private _animalService = inject(AnimalService); // Inyección del servicio para obtener los detalles del animal

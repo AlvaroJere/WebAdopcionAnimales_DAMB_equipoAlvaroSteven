@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Mis Animales Favoritos</h2>
+  <hr>
+  
+  <div class="row">
+    @for (animal of listaFavoritos; track animal.id) {
+      <div class="col-md-4 mb-4">
+        <app-animal-card [animal]="animal"></app-animal-card>
+      </div>
+    } @empty {
+      <div class="alert alert-info">
+        Aún no has añadido ningún animal a tus favoritos. ¡Explora nuestras secciones!
+      </div>
+    }
+  </div>
+</div>
