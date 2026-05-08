@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
+import { Animal } from '../../animal.interface';
+import { AnimalService } from '../../servicios/animal.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,11 +13,14 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  animalesDestacados = [
-    { nombre: 'Thor', raza: 'Mestizo', edad: '3 Años', imagen: 'img/perroMestizo.jpg' },
-    { nombre: 'Mina', raza: 'Común Europeo', edad: '1 Año', imagen: 'img/gato1.png' },
-    { nombre: 'Bigotes', raza: 'Ruso', edad: '4 Meses', imagen: 'img/hamster1.webp' },
-    { nombre: 'Púas', raza: 'Erizo Africano', edad: '1 Año', imagen: 'img/erizo1.jpg' }
-  ];
+export class HomeComponent implements OnInit{
+
+  private _animalService = new AnimalService(); // Instancia del servicio para obtener los animales
+  animalesDestacados: Animal[] = []; // Array para almacenar los animales destacados
+
+  ngOnInit(): void {
+
+    // Al iniciar el componente, obtenemos la lista de todos los animales y seleccionamos los primeros 4 para mostrar como destacados
+    this.animalesDestacados = this._animalService.getTodos().slice(0, 4);
+  }
 }
