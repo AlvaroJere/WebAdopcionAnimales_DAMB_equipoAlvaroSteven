@@ -19,7 +19,7 @@ export interface Animal {
 export class AnimalService {
 
 // Ruta al archivo JSON con los datos de los animales
-  private jsonUrl = 'data/animales.json'; 
+  private jsonUrl = 'data/mascotas.json'; 
 
 // Aquí podrías agregar métodos para gestionar favoritos, adopciones, etc.
   private _favoritos: number[] = [];
