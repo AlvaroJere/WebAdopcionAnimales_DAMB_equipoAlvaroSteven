@@ -10,6 +10,7 @@ import { DetalleAnimalComponent } from './pages/detalle-animal/detalle-animal.co
 import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
 import { ComoAdoptarComponent } from './pages/como-adoptar/como-adoptar.component';
 import { FavoritoComponent } from './pages/favorito/favorito.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';  // Página para rutas no encontradas (opcional)
 
 export const routes: Routes = [
 
@@ -28,5 +29,5 @@ export const routes: Routes = [
   // Esta ruta dinámica ":" permitirá usar UNA sola ficha para todos los animales
   { path: 'animal/:id', component: DetalleAnimalComponent },
 
-  { path: '**', redirectTo: 'home' } // Ruta comodín para redirigir a Home si no se encuentra la ruta
+  { path: '**', component: NotFoundComponent } // Ruta para manejar rutas no encontradas
 ];

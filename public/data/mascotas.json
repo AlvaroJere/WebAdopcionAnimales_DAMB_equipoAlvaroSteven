@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "nombre": "Thor",
+    "raza": "Mestizo",
+    "edad": "3 Años",
+    "sexo": "Macho",
+    "imagen": "img/perroMestizo.jpg",
+    "tipo": "perro",
+    "precio": 0,
+    "descripcion": "Thor es un compañero leal, ideal para familias activas que aman los paseos largos."
+  },
+  {
+    "id": 2,
+    "nombre": "Mina",
+    "raza": "Común",
+    "edad": "1 Año",
+    "sexo": "Hembra",
+    "imagen": "img/gato1.png",
+    "tipo": "gato",
+    "precio": 0,
+    "descripcion": "Mina es muy cariñosa y busca un hogar tranquilo donde pueda recibir muchos mimos."
+  },
+  {
+    "id": 3,
+    "nombre": "Copito",
+    "raza": "Belier",
+    "edad": "2 Años",
+    "sexo": "Macho",
+    "imagen": "img/conejo1.jpg",
+    "tipo": "otro",
+    "precio": 0,
+    "descripcion": "Copito es un conejo muy tranquilo, perfecto para vivir en interiores."
+  },
+  {
+    "id": 4,
+    "nombre": "Nala",
+    "raza": "Angora",
+    "edad": "6 Meses",
+    "sexo": "Hembra",
+    "imagen": "img/gatoAngora.jpg",
+    "tipo": "gato",
+    "precio": 0,
+    "descripcion": "Nala es una gatita muy dulce que apenas está descubriendo el mundo."
+  },
+  {
+    "id": 5,
+    "nombre": "Toby",
+    "raza": "Beagle",
+    "edad": "1 Año",
+    "sexo": "Macho",
+    "imagen": "img/perroBeagle.jpg",
+    "tipo": "perro",
+    "precio": 0,
+    "descripcion": "Toby es un perro lleno de energía, juguetón y muy sociable con otros animales."
+  },
+  {
+    "id": 6,
+    "nombre": "Rex",
+    "raza": "Pastor Alemán",
+    "edad": "5 Años",
+    "sexo": "Macho",
+    "imagen": "img/perroPastorAleman.jpg",
+    "tipo": "perro",
+    "precio": 0,
+    "descripcion": "Rex es protector, leal y muy bien educado."
+  },
+    {
+        "id": 7,
+        "nombre": "Luna",
+        "raza": "Siamés",
+        "edad": "2 Años",
+        "sexo": "Hembra",
+        "imagen": "img/gatoSiamés.jpg",
+        "tipo": "gato",
+        "precio": 0,
+        "descripcion": "Luna es una gata muy elegante, con un carácter tranquilo y cariñoso."
+    },
+    {
+        "id": 8,
+        "nombre": "Bobby",
+        "raza": "Mestizo",
+        "edad": "4 Años",
+        "sexo": "Macho",
+        "imagen": "img/perroMestizo2.jpg",
+        "tipo": "perro",
+        "precio": 0,
+        "descripcion": "Bobby es un perro muy amigable, ideal para familias con niños."
+    },
+    {
+        "id": 9,
+        "nombre": "Coco",
+        "raza": "Mestizo",
+        "edad": "3 Años",
+        "sexo": "Hembra",
+        "imagen": "img/conejo2.jpg",
+        "tipo": "otro",
+        "precio": 0,
+        "descripcion": "Coco es un conejo muy cariñoso, perfecto para vivir en interiores."
+    },
+    {
+        "id": 10,
+        "nombre": "Simba",
+        "raza": "Mestizo",
+        "edad": "2 Años",
+        "sexo": "Macho",
+        "imagen": "img/gatoMestizo.jpg",
+        "tipo": "gato",
+        "precio": 0,
+        "descripcion": "Simba es un gato muy juguetón, ideal para familias con niños."
+    },
+    {
+        "id": 11,
+        "nombre": "Rocky",
+        "raza": "Bulldog",
+        "edad": "3 Años",
+        "sexo": "Macho",
+        "imagen": "img/perroBulldog.jpg",
+        "tipo": "perro",
+        "precio": 0,
+        "descripcion": "Rocky es un perro muy tranquilo, ideal para vivir en apartamentos."
+    },
+    {
+        "id": 12,
+        "nombre": "Molly",
+        "raza": "Mestizo",
+        "edad": "1 Año",
+        "sexo": "Hembra",
+        "imagen": "img/gatoMestizo2.jpg",
+        "tipo": "gato",
+        "precio": 0,
+        "descripcion": "Molly es una gatita muy cariñosa, perfecta para familias que buscan un compañero tranquilo."
+    }
+]
