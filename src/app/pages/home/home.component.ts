@@ -2,8 +2,7 @@ import { Component, OnInit, HostListener} from '@angular/core'; // Importamos Ho
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
-import { Animal } from '../../animal.interface';
-import { AnimalService } from '../../servicios/animal.service';
+import { AnimalService, Animal } from '../../servicios/animal.service';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +13,10 @@ import { AnimalService } from '../../servicios/animal.service';
 })
 export class HomeComponent implements OnInit{
 
-  private _animalService = new AnimalService(); // Instancia del servicio para obtener los animales
   animalesDestacados: Animal[] = []; // Array para almacenar los animales destacados
-
   isShrunk: boolean = false; // Variable para controlar si el hero está encogido o no
+
+  constructor(private _animalService: AnimalService) {}
 
   @HostListener('window:scroll', []) // Escuchamos el evento de scroll en la ventana
   onWindowScroll() {
@@ -26,7 +25,14 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
 
-    // Al iniciar el componente, obtenemos la lista de todos los animales y seleccionamos los primeros 4 para mostrar como destacados
-    this.animalesDestacados = this._animalService.getTodos().slice(0, 4);
+    this._animalService.getTodos().subscribe({
+      next: (data) => {
+        // Tomamos los primeros 4 animales del array para mostrarlos como destacados
+        this.animalesDestacados = data.slice(0, 4);
+      },
+      error: (err) => {
+        console.error('Error al cargar los animales:', err);
+      }
+    });
   }
 }

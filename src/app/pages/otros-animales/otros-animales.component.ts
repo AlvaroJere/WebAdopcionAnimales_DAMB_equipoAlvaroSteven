@@ -13,11 +13,18 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
   styleUrl: './otros-animales.component.css'
 })
 export class OtrosAnimalesComponent implements OnInit {
-  private _animalService = inject(AnimalService); // Inyección moderna
   listadoOtros: Animal[] = [];
+
+  constructor(private _animalService: AnimalService) {}
 
   ngOnInit(): void {
     // Usamos el método que ya creaste para filtrar por 'otro'
-    this.listadoOtros = this._animalService.getAnimalesPorTipo('otro');
+    this._animalService.getAnimalesPorTipo('otro').subscribe(data => {
+      this.listadoOtros = data;
+    }, 
+    // Manejo de errores en caso de que la carga falle
+    error => {
+      console.error('Error al cargar los animales:', error);
+    });
   }
 }

@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnimalService } from '../../servicios/animal.service';
-import { Animal } from '../../animal.interface';
+import { AnimalService, Animal } from '../../servicios/animal.service';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
 
 @Component({
@@ -15,11 +14,18 @@ import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.c
 // Componente para mostrar los animales favoritos del usuario
 export class FavoritoComponent implements OnInit {
 
-  private _animalService = inject(AnimalService); // Inyección del servicio para acceder a los métodos relacionados con los animales
   listaFavoritos: Animal[] = []; // Array para almacenar los animales que el usuario ha marcado como favoritos
+
+  constructor(private _animalService: AnimalService) {} // Inyectamos el servicio en el constructor
 
   ngOnInit() {
     // Al iniciar el componente, obtenemos la lista de animales favoritos usando el método del servicio
-    this.listaFavoritos = this._animalService.getAnimalesFavoritos();
+    this._animalService.getAnimalesFavoritos().subscribe(data => {
+      this.listaFavoritos = data;
+    }, 
+    // Manejo de errores en caso de que la carga falle
+    error => {
+      console.error('Error al cargar los animales favoritos:', error);
+    });
   }
 }

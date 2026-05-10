@@ -2,8 +2,7 @@ import { Component, OnInit, inject } from '@angular/core'; // Añadimos OnInit e
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
-import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio
-import { Animal } from '../../animal.interface'; // Importamos la interface
+import { AnimalService,Animal } from '../../servicios/animal.service'; // Importamos el servicio
 
 @Component({
   selector: 'app-adopcion',
@@ -13,16 +12,20 @@ import { Animal } from '../../animal.interface'; // Importamos la interface
   styleUrl: './adopcion.component.css'
 })
 export class AdopcionComponent implements OnInit {
-  
-  // Inyectamos el servicio al estilo Angular 19
-  private _animalService = inject(AnimalService);
 
   // Definimos la variable vacía que recibirá los datos
   listadoAnimales: Animal[] = [];
 
-  ngOnInit(): void {
+  constructor(private _animalService: AnimalService) {} // Inyectamos el servicio en el constructor
 
+  ngOnInit(): void {
     // Cuando el componente se inicia, pedimos los datos al servicio
-    this.listadoAnimales = this._animalService.getTodos();
+    this._animalService.getTodos().subscribe(data => {
+      this.listadoAnimales = data;
+    }, 
+    // Manejo de errores en caso de que la carga falle
+    error => {
+      console.error('Error al cargar los animales:', error);
+    });
   }
 }

@@ -2,8 +2,7 @@ import { Component, OnInit, inject } from '@angular/core'; // Añadimos OnInit e
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
-import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio
-import { Animal } from '../../animal.interface'; // Importamos la interface
+import { AnimalService, Animal } from '../../servicios/animal.service'; // Importamos el servicio
 
 @Component({
   selector: 'app-perros',
@@ -14,11 +13,19 @@ import { Animal } from '../../animal.interface'; // Importamos la interface
 })
 
 export class PerrosComponent implements OnInit {
-  private _animalService = inject(AnimalService);
+
   listadoPerros: Animal[] = [];
 
+  constructor(private _animalService: AnimalService) {} // Inyectamos el servicio en el constructor
+
   ngOnInit(): void {
-    // Uso el método que ya he creado para filtrar por 'perro'
-    this.listadoPerros = this._animalService.getAnimalesPorTipo('perro');
+  // Llamamos al servicio y nos suscribimos para recibir los datos
+  this._animalService.getAnimalesPorTipo('perro').subscribe(data => {
+    this.listadoPerros = data;
+    }, 
+    // Manejo de errores en caso de que la carga falle
+    error => {
+      console.error('Error al cargar los animales:', error);
+    });
   }
 }

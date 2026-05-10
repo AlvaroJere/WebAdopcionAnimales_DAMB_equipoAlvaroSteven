@@ -13,10 +13,18 @@ import { Animal } from '../../animal.interface'; // Importamos la interface
   styleUrl: './gatos.component.css'
 })
 export class GatosComponent implements OnInit {
-  private _animalService = inject(AnimalService);
   listadoGatos: Animal[] = [];
 
+  constructor(private _animalService: AnimalService) {} // Inyectamos el servicio en el constructor
+
   ngOnInit(): void {
-    this.listadoGatos = this._animalService.getAnimalesPorTipo('gato');
+  // Uso el método que ya he creado para filtrar por 'gato'
+  this._animalService.getAnimalesPorTipo('gato').subscribe(data => {
+    this.listadoGatos = data;
+    }, 
+    // Manejo de errores en caso de que la carga falle
+    error => {
+      console.error('Error al cargar los animales:', error);
+    });
   }
 }

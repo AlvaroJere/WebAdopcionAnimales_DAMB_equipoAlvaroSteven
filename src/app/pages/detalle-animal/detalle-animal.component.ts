@@ -6,9 +6,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router'; // Importamos Ac
 // Importamos FormGroup, FormControl y Validators para crear el formulario reactivo
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms'; 
 
-import { AnimalService } from '../../servicios/animal.service'; // Importamos el servicio para obtener los detalles del animal
-import { Animal } from '../../animal.interface'; // Importamos la interface para tipar mejor el animal
-import { TemplateLiteral } from '@angular/compiler';
+import { AnimalService, Animal } from '../../servicios/animal.service'; // Importamos el servicio para obtener los detalles del animal
+import { TemplateLiteral } from '@angular/compiler'; // Importamos TemplateLiteral para usarlo en el mensaje de alerta al enviar la solicitud de adopción
 
 @Component({
   selector: 'app-detalle-animal',
@@ -19,11 +18,10 @@ import { TemplateLiteral } from '@angular/compiler';
 })
 export class DetalleAnimalComponent implements OnInit
 {
-  private _route = inject(ActivatedRoute); // Inyección de ActivatedRoute para obtener el ID del animal
-  private _animalService = inject(AnimalService); // Inyección del servicio para obtener los detalles del animal
-
-  animal?: Animal; // Variable para almacenar los detalles del animal
-
+  animal: Animal | undefined; // Variable para almacenar los detalles del animal que se mostrarán en la vista
+  
+  constructor(private _animalService: AnimalService, private _route: ActivatedRoute) {} // Inyectamos el servicio y ActivatedRoute en el constructor
+  
   // Formulario de contacto para solicitar la adopción
   adopcionForm = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(3)]), // Campo de nombre, obligatorio y con una longitud mínima de 3 caracteres
@@ -32,10 +30,22 @@ export class DetalleAnimalComponent implements OnInit
     mensaje: new FormControl('', [Validators.required, Validators.minLength(10)]), // Campo de mensaje, obligatorio y con una longitud mínima de 10 caracteres
   });
 
-  ngOnInit() 
-  {
-    const id = Number(this._route.snapshot.paramMap.get('id')); // Obtenemos el ID del animal desde la URL
-    this.animal = this._animalService.getAnimalPorId(id); // Obtenemos los detalles del animal usando el servicio
+ ngOnInit() {
+    const id = Number(this._route.snapshot.paramMap.get('id')); // Obtenemos el ID del animal desde la URL y lo convertimos a número
+
+    // Llamamos al servicio para obtener los detalles del animal usando el ID obtenido
+    if (id) {
+
+      // Nos suscribimos al observable que devuelve el servicio para obtener los detalles del animal
+      this._animalService.getAnimalPorId(id).subscribe({
+        next: (res) => {
+          this.animal = res; // Asignamos los detalles del animal a la variable para mostrarla en la vista
+        },
+        error: (error) => { // El error ahora está DENTRO del objeto
+          console.error('Error al cargar los detalles del animal:', error);
+        }
+      });
+    }
   }
 
   enviarSolicitud() 
