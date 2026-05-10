@@ -1,0 +1,19 @@
+.header-compacto {
+  /* Hacemos que el movimiento sea suave (0.3 segundos) */
+  transition: transform 0.3s ease-in-out;
+  top: 0; /* Asegura que se quede en la parte superior */ 
+  width: 100%; /* Para que ocupe todo el ancho */
+  z-index: 1000; 
+}
+
+/*La clase que aplica Angular cuando isHeaderHidden es true */
+.header-hidden {
+
+  /* Desplazamos el header hacia arriba exactamente el 100% de su propia altura */
+  transform: translateY(-100%);
+}
+
+/*Sombra suave para que resalte sobre el contenido */
+.header-compacto:not(.header-hidden) {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
