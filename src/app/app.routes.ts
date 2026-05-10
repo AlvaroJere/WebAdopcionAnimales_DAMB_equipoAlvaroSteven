@@ -29,5 +29,6 @@ export const routes: Routes = [
   // Esta ruta dinámica ":" permitirá usar UNA sola ficha para todos los animales
   { path: 'animal/:id', component: DetalleAnimalComponent },
 
-  { path: '**', component: NotFoundComponent } // Ruta para manejar rutas no encontradas
+  { path: '**', component: NotFoundComponent }, // Ruta para manejar rutas no encontradas
+  { path: '**', redirectTo: 'error-404' } // Redirige cualquier ruta no encontrada a una página de error 404 
 ];
