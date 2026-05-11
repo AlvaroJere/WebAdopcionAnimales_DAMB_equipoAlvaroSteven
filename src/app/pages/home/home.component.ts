@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener} from '@angular/core'; // Importamos HostListener para escuchar el scroll
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Importamos CommonModule para usar directivas comunes como ngIf y ngFor
+import { RouterModule } from '@angular/router'; // Importamos RouterModule para usar el routerLink en los enlaces
 import { AnimalCardComponent } from '../../componentes/animal-card/animal-card.component';
 import { AnimalService, Animal } from '../../servicios/animal.service';
 
